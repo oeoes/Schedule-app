@@ -43,7 +43,7 @@ Seeding: AppSeeder<br>
 Seeding: UserSeeder<br>
 </pre>
 
-3. To be able to access dashboard it requires some authentication, to create one, there is no interface to accompish that goal, instead we could configure it through database seeding. Just go to <code>database/seeds/UserSeeder.php</code> in your project folder and you'll find this lines of code
+* To be able to access dashboard it requires some authentication, to create one, there is no interface to accompish that goal, instead we could configure it through database seeding. Just go to <code>database/seeds/UserSeeder.php</code> in your project folder and you'll find this lines of code
 ```php
 public function run()
 {
@@ -55,9 +55,9 @@ public function run()
 ```
 But, because of we're in a demo mode for now, so username and password has already availabel, you could check UserSeeder class inside this directory <code>database/seeds/UserSeeder.php</code> and see your current password and username by your self (sorry i can't tell those here, it's too sensitive XD).
 
-4. The app is ready to use, <code>http://localhost:8000/schedule</code> this is starting endpoint, type that url in your browser to see what's happen next
+* The app is ready to use, <code>http://localhost:8000/schedule</code> this is starting endpoint, type that url in your browser to see what's happen next
 
-* If you intended to create data from scracth, i highly recommend to run following command to start
+#### If you intended to create data from scracth, i highly recommend to run following command to start
 ```
 php artisan db:seed --class=UserSeeder
 ```
