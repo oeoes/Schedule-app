@@ -15,7 +15,7 @@
     Schedule is web based app, built using Laravel (spesifically laravel v^5.7.), and its main purpose is to help you manage your schedhule, what i've implemented here is managed my class schedules of my campus. Hoping this would aplicable to any kinds of scheduling.</p>
 
 # Configuring app
-* open <code>.env</code> file, then set your database configuration
+#### open <code>.env</code> file, then set your database configuration
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -24,13 +24,14 @@ DB_DATABASE=your_db_name
 DB_USERNAME=your_db_username
 DB_PASSWORD=your_db_pass
 ```
-* I've provided some demo, so you don't need to create data from scrath to see how this works,following are the steps
-1. In your terminal (assuming you have located dir to schedule app project, exp: ~$ user/project/schedule_app) and then type following command
+#### I've provided some demo, so you don't need to create data from scrath to see how this works,following are the steps
+* In your terminal (assuming you have located dir to schedule app project, exp: ~$ user/project/schedule_app) and then type following command
 ```
 php artisan migrate
 ```
 this command will migrate tables to your database.
-2. Import/insert data to database by typing command below
+
+* Import/insert data to database by typing command below
 ```
 php artisan db:seed
 ```
@@ -41,7 +42,7 @@ Seeding: _AppSeeder_<br>
 Seeding: _UserSeeder_<br>
 
 3. To be able to access dashboard it requires some authentication, to create one there is no interface to accompish that goal, instead we could configure it throug database seeding
-go to _database/seeds/UserSeeder.php_ and you'll find this lines of code
+go to <code>database/seeds/UserSeeder.php</code> and you'll find this lines of code
 ```php
 public function run()
 {
@@ -51,11 +52,11 @@ public function run()
     ]);
 }
 ```
-But, because of we're in a demo mode for now, so username and password has already availabel, you could check UserSeeder class inside this directory _database/seeds/UserSeeder.php_ and see your current password and username by your self (sorry i can't tell those here, it's too sensitive XD).
+But, because of we're in a demo mode for now, so username and password has already availabel, you could check UserSeeder class inside this directory <code>database/seeds/UserSeeder.php</code> and see your current password and username by your self (sorry i can't tell those here, it's too sensitive XD).
 
-4. The app is ready to use, <pre>http://localhost:8000/schedule</pre> this is starting endpoint, type that url in your browser to what's happen next
+4. The app is ready to use, <code>http://localhost:8000/schedule</code> this is starting endpoint, type that url in your browser to see what's happen next
 
-* If you intended to create data from scracth i highly recommend to run following command to start
+* If you intended to create data from scracth, i highly recommend to run following command to start
 ```
 php artisan db:seed --class=UserSeeder
 ```
