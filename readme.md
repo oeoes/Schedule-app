@@ -37,10 +37,10 @@ php artisan db:seed
 ```
 this command will call seeder classes:
 <pre>
-Seeding: _LecturerSeeder_<br>
-Seeding: _RoomSeeder_<br>
-Seeding: _AppSeeder_<br>
-Seeding: _UserSeeder_<br>
+Seeding: LecturerSeeder<br>
+Seeding: RoomSeeder<br>
+Seeding: AppSeeder<br>
+Seeding: UserSeeder<br>
 </pre>
 
 3. To be able to access dashboard it requires some authentication, to create one, there is no interface to accompish that goal, instead we could configure it through database seeding. Just go to <code>database/seeds/UserSeeder.php</code> in your project folder and you'll find this lines of code
