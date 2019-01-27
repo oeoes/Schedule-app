@@ -15,7 +15,7 @@
     Schedule is web based app, built using Laravel (spesifically laravel v^5.7.), and its main purpose is to help you manage your schedhule, what i've implemented here is managed my class schedules of my campus. Hoping this would aplicable to any kinds of scheduling.</p>
 
 # Configuring app
-* open <pre>.env</pre> file, then set your database configuration
+* open <code>.env</code> file, then set your database configuration
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -35,10 +35,10 @@ this command will migrate tables to your database.
 php artisan db:seed
 ```
 this command will call seeder classes:
-Seeding: _LecturerSeeder_
-Seeding: _RoomSeeder_
-Seeding: _AppSeeder_
-Seeding: _UserSeeder_
+Seeding: _LecturerSeeder_<br>
+Seeding: _RoomSeeder_<br>
+Seeding: _AppSeeder_<br>
+Seeding: _UserSeeder_<br>
 
 3. To be able to access dashboard it requires some authentication, to create one there is no interface to accompish that goal, instead we could configure it throug database seeding
 go to _database/seeds/UserSeeder.php_ and you'll find this lines of code
