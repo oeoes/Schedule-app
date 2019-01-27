@@ -36,13 +36,14 @@ this command will migrate tables to your database.
 php artisan db:seed
 ```
 this command will call seeder classes:
+<pre>
 Seeding: _LecturerSeeder_<br>
 Seeding: _RoomSeeder_<br>
 Seeding: _AppSeeder_<br>
 Seeding: _UserSeeder_<br>
+</pre>
 
-3. To be able to access dashboard it requires some authentication, to create one there is no interface to accompish that goal, instead we could configure it throug database seeding
-go to <code>database/seeds/UserSeeder.php</code> and you'll find this lines of code
+3. To be able to access dashboard it requires some authentication, to create one, there is no interface to accompish that goal, instead we could configure it through database seeding. Just go to <code>database/seeds/UserSeeder.php</code> in your project folder and you'll find this lines of code
 ```php
 public function run()
 {
@@ -61,3 +62,6 @@ But, because of we're in a demo mode for now, so username and password has alrea
 php artisan db:seed --class=UserSeeder
 ```
 *Note:* Some links will not available if you create from scratch, and even will cause an error, but it's OK, keep calm and do not panic!
+
+for more info, you can contact to this email <code>cocokbanget29@gmail.com</code>
+Have a nice day!
