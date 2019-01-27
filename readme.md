@@ -24,7 +24,7 @@ DB_DATABASE=your_db_name
 DB_USERNAME=your_db_username
 DB_PASSWORD=your_db_pass
 ```
-#### I've provided some demo, so you don't need to create data from scrath to see how this works,following are the steps
+#### I've provided some demo, so you don't need to create data from scrath to see how this works, following are the steps
 * In your terminal (assuming you have located dir to schedule app project, exp: ~$ user/project/schedule_app) and then type following command
 ```
 php artisan migrate
@@ -35,7 +35,7 @@ this command will migrate tables to your database.
 ```
 php artisan db:seed
 ```
-this command will call seeder classes:
+above command will call these seeder classes:
 <pre>
 Seeding: LecturerSeeder<br>
 Seeding: RoomSeeder<br>
@@ -63,5 +63,5 @@ php artisan db:seed --class=UserSeeder
 ```
 *Note:* Some links will not available if you create from scratch, and even will cause an error, but it's OK, keep calm and do not panic!
 
-for more info, you can contact to this email <code>cocokbanget29@gmail.com</code>
+for more info, you can contact to this email <code>cocokbanget29@gmail.com</code><br>
 Have a nice day!
