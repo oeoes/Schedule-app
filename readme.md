@@ -15,7 +15,7 @@
     Schedule is web based app, built using Laravel (spesifically laravel v^5.7.), and its main purpose is to help you manage your schedhule, what i've implemented here is managed my class schedules of my campus. Hoping this would aplicable to any kinds of scheduling.</p>
 
 # Configuring app
-#### open <code>.env</code> file, then set your database configuration
+#### Rename <code>.env.example to .env</code>, then set your database configuration
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
