@@ -27,9 +27,9 @@ DB_PASSWORD=your_db_pass
 #### I've provided some demo, so you don't need to create data from scrath to see how this works, following are the steps
 * In your terminal (assuming you have located dir to schedule app project, exp: ~$ user/project/schedule_app) and then type following command
 ```
+// this command will migrate tables to your database.
 php artisan migrate
 ```
-this command will migrate tables to your database.
 
 * Import/insert data to database by typing command below
 ```
@@ -43,7 +43,7 @@ Seeding: AppSeeder<br>
 Seeding: UserSeeder<br>
 </pre>
 
-* To be able to access dashboard it requires some authentication, to create one, there is no interface to accompish that goal, instead we could configure it through database seeding. Just go to <code>database/seeds/UserSeeder.php</code> in your project folder and you'll find this lines of code
+* To be able to access dashboard it requires some authentication, to create one, there is no interface to accompish that goal, instead we could configure it through database seeding. Just go to <code>database/seeds/UserSeeder.php</code> in your project folder and you'll find these lines of code
 ```php
 public function run()
 {
