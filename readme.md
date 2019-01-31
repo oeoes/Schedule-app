@@ -7,63 +7,61 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+# Schedule v1.0
+<p>
+    Hello there! Welcome to Schedule v1.0 repository. Here you can clone this repo freely, ya of course.
+    But, wait, what do I clone this repo for? Okay.. okay.. I almost forgot. Then, lemme introduce this app.
+    Schedule is web based app, built using Laravel (spesifically laravel v^5.7.), and its main purpose is to help you manage your schedhule, what i've implemented here is managed my class schedules of my campus. Hoping this would aplicable to any kinds of scheduling.</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Configuring app
+#### Rename <code>.env.example to .env</code>, then set your database configuration
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_db_name
+DB_USERNAME=your_db_username
+DB_PASSWORD=your_db_pass
+```
+#### I've provided some demo, so you don't need to create data from scrath to see how this works, following are the steps
+* In your terminal (assuming you have located dir to schedule app project, exp: ~$ user/project/schedule_app) and then type following command
+```
+// this command will migrate tables to your database.
+php artisan migrate
+```
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+* Import/insert data to database by typing command below
+```
+php artisan db:seed
+```
+above command will call these seeder classes:
+<pre>
+Seeding: LecturerSeeder<br>
+Seeding: RoomSeeder<br>
+Seeding: AppSeeder<br>
+Seeding: UserSeeder<br>
+</pre>
 
-## Learning Laravel
+* To be able to access dashboard it requires some authentication, to create one, there is no interface to accompish that goal, instead we could configure it through database seeding. Just go to <code>database/seeds/UserSeeder.php</code> in your project folder and you'll find these lines of code
+```php
+public function run()
+{
+    User::create([
+        'username' => 'your_username', // create your own username
+        'password' => bcrypt('your_password') // create your own password
+    ]);
+}
+```
+But, because of we're in a demo mode for now, so username and password has already availabel, you could check UserSeeder class inside this directory <code>database/seeds/UserSeeder.php</code> and see your current password and username by your self (sorry i can't tell those here, it's too sensitive XD).
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+* The app is ready to use, <code>http://localhost:8000/schedule</code> this is starting endpoint, type that url in your browser to see what's happen next
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+#### If you intended to create data from scracth, i highly recommend to run following command to start
+```
+php artisan db:seed --class=UserSeeder
+```
+*Note:* Some links will not available if you create from scratch, and even will cause an error, but it's OK, keep calm and do not panic!
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+for more info, you can contact to this email <code>cocokbanget29@gmail.com</code><br>
+Have a nice day!
