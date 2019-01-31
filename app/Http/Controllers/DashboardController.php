@@ -29,6 +29,7 @@ class DashboardController extends Controller
         Course::create([
             'course_name' => request('course_name'),
             'lecturer_id' => request('lecturer_id'),
+            'initial' => request('initial'),
             'day' => request('day'),
             'time' => request('time'),
             'sks' => request('sks'),

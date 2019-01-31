@@ -1,5 +1,7 @@
 @extends('layout.master')
 
+@section('title', 'Schedule - Dashboard')
+
 @section('content')
 
 <main class="py-5">

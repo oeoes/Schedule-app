@@ -17,8 +17,8 @@ class AppController extends Controller
     public function index()
     {
         $day = Carbon::now();
-        // $day_course = $day->format('l');
-        $day_course = 'monday';
+        $day_course = $day->format('l');
+        // $day_course = 'monday';
 
         $data = Course::where('day', $day_course)->with('lecturer', 'room')->get();
         
