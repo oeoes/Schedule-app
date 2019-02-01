@@ -1,0 +1,131 @@
+.full-screen{
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+.full-screen:hover{
+    animation: fullbtn .3s ease;
+    animation-fill-mode: forwards;
+}
+#close-btn:hover{
+    animation: fullbtn .3s ease;
+    animation-fill-mode: forwards;
+}
+@keyframes fullbtn{
+    from{
+        transform: scale(1)
+    }
+    to{
+        transform: scale(1.4)
+    }
+}
+#full-cont{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 100000;
+    background: #fff;
+    overflow: auto;
+}
+#close-btn{
+    position: absolute;
+    top: -9px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 35px;
+}
+.delay-1{
+    animation-delay: .1s;
+}
+.delay-2{
+    animation-delay: .2s;
+}
+.delay-3{
+    animation-delay: .3s;
+}
+.delay-4{
+    animation-delay: .4s;
+}
+.delay-5{
+    animation-delay: .5s;
+}
+.delay-6{
+    animation-delay: .6s;
+}
+.delay-7{
+    animation-delay: .7s;
+}
+.delay-8{
+    animation-delay: .8s;
+}
+.delay-9{
+    animation-delay: .9s;
+}
+.delay-10{
+    animation-delay: 1s;
+}
+
+.clock-animated{
+    animation: life 1.1s ease infinite;
+}
+@keyframes life{
+    0%{
+        transform: scale(1)
+    }
+    50%{
+        transform: scale(1.2)
+    }
+    100%{
+        transform: scale(1)
+    }
+}
+
+.card-course{
+    cursor: pointer;
+}
+.card-course:hover{
+    animation: shrink .5s ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes shrink{
+    from{
+        transform: scale(1)
+    }
+    to{
+        transform: scale(1.05)
+    }
+}
+.white{
+    color: white;
+}
+
+.card-height{
+    height: 415px;
+}
+
+.card-height-d{
+    height: 490px;
+}
+
+.mypreload{
+    position: relative;
+}
+.myload{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 100;
+}
+
+.myload div{
+    margin-top: 10%
+}
