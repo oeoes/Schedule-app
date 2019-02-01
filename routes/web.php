@@ -12,8 +12,13 @@
 */
 
 Route::prefix('schedule')->group(function(){
+    // Api
+    Route::prefix('list')->group(function(){
+        Route::get('/', 'AppController@courseList');
+    });
+
     Route::get('/', 'AppController@index')->name('home');
-    Route::get('/sort/room/{id}', 'AppController@sortRoom')->name('sort.room');
+    Route::get('/sort/room/{id}/{state}', 'AppController@sortRoom')->name('sort.room');
 
     Route::prefix('dashboard')->group(function(){
         Route::get('/', 'DashboardController@home')->name('home.dashboard');

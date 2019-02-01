@@ -11,7 +11,7 @@
             <div class="card border-0 mb-2">
                 <div class="row">
                     <div class="col-md-8 p-4">
-                        <div class="text-muted animated slideInLeft">{{ \Carbon\Carbon::now()->toDayDateTimeString() }}</div>
+                        <div class="text-muted animated slideInLeft">{{ \Carbon\Carbon::now('Asia/Jakarta')->toDayDateTimeString() }}</div>
                         <div class="display-3 animated slideInLeft delay-4">Dashboard</div>
                     </div>
                     <div class="col-md-4">

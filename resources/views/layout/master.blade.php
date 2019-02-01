@@ -4,114 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_field() }}"
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <!-- Custom Css -->
-    <style>
-        .full-screen{
-            position: absolute;
-            top: 15px;
-            right: 10px;
-            font-size: 25px;
-            cursor: pointer;
-        }
-        #full-cont{
-            position: fixed;
-            top: 0;
-            left: 0;
-            display: none;
-            width: 100%;
-            height: 100%;
-            z-index: 100000;
-            background: #fff;
-            overflow: auto;
-        }
-        #close-btn{
-            position: absolute;
-            top: -9px;
-            right: 15px;
-            cursor: pointer;
-            font-size: 35px;
-        }
-        .delay-1{
-            animation-delay: .1s;
-        }
-        .delay-2{
-            animation-delay: .2s;
-        }
-        .delay-3{
-            animation-delay: .3s;
-        }
-        .delay-4{
-            animation-delay: .4s;
-        }
-        .delay-5{
-            animation-delay: .5s;
-        }
-        .delay-6{
-            animation-delay: .6s;
-        }
-        .delay-7{
-            animation-delay: .7s;
-        }
-        .delay-8{
-            animation-delay: .8s;
-        }
-        .delay-9{
-            animation-delay: .9s;
-        }
-        .delay-10{
-            animation-delay: 1s;
-        }
-
-        .clock-animated{
-            animation: life 1.1s ease infinite;
-        }
-        @keyframes life{
-            0%{
-                transform: scale(1)
-            }
-            50%{
-                transform: scale(1.2)
-            }
-            100%{
-                transform: scale(1)
-            }
-        }
-
-        .card-course:{
-            cursor: pointer;
-        }
-        .card-course:hover{
-            animation: shrink .5s ease;
-            animation-fill-mode: forwards;
-        }
-
-        @keyframes shrink{
-            from{
-                transform: scale(1)
-            }
-            to{
-                transform: scale(1.05)
-            }
-        }
-        .white{
-            color: white;
-        }
-
-        .card-height{
-            height: 415px;
-        }
-
-        .card-height-d{
-            height: 490px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/schedule.css') }}">
 </head>
 <body onload="startTime()">
+<div id="app">
+<!-- Flash message -->
     @if(Session::has('message'))
     <div class="row fixed-top mt-4" style="z-index: 10000" id="myalert">
         <div class="col-6 offset-3">
@@ -123,6 +27,8 @@
         </div>
     </div>
     @endif
+<!-- Flash message -->
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-blue fixed-top">
         <a href="#" class="navbar-brand">Sekret Lab</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#mymenu">
@@ -168,19 +74,11 @@
             </div>
         </div>
     </footer>
-
+</div>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/scrollreveal.js') }}"></script>
     @yield('custom-js')
-    <script>
-        $('#fullscreen').click(function(){
-            $('#full-cont').show()
-        });
-
-        $('#close-btn').click(function(){
-            $('#full-cont').hide()
-        })
-    </script>
+    <script src="{{ asset('js/fullscreen.js') }}"></script>
 
     <script>
         window.sr = ScrollReveal({ reset: true });
@@ -193,21 +91,14 @@
         });
     </script>
     <script>
-        function startTime() {
-            var today = new Date();
-            var h = today.getHours();
-            var m = today.getMinutes();
-            var s = today.getSeconds();
-            m = checkTime(m);
-            s = checkTime(s);
-            document.getElementById('time-schedule').innerHTML =
-            h + ":" + m + ":" + s;
-            var t = setTimeout(startTime, 500);
-        }
-        function checkTime(i) {
-            if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-            return i;
-        }
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover();   
+        });
+
+        $('.popover-dismiss').popover({
+        trigger: 'focus'
+        })
     </script>
+    <script src="{{ asset('js/time.js') }}"></script>
 </body>
 </html>

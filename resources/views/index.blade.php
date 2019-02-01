@@ -11,7 +11,7 @@
             <div class="card border-0 mb-2">
                 <div class="row">
                     <div class="col-md-8 p-4">
-                        <div class="text-muted animated slideInLeft">{{ \Carbon\Carbon::now()->toDayDateTimeString() }}</div>
+                        <div class="text-muted animated slideInLeft">{{ \Carbon\Carbon::now('Asia/Jakarta')->toDayDateTimeString() }}</div>
                         <div class="display-3 animated slideInLeft delay-3">Schedule</div>
                     </div>
                     <div class="col-md-4">
@@ -26,22 +26,31 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="card border-0 p-3">
-                        <div class="card animated slideInLeft" style="a">
-                            <div class="h4 card-header bg-blue silver">Rooms</div>
+                        <!-- Room -->
+                        <div class="card border-0 p-2 mb-1">
+                        <div class="h6">Filter : <a href="#" title="Filter by today" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Dengan filter today, pencarian hanya akan menghasilkan jadwal hari ini (today) dengan ruangan yang dipilih"><i class="far fa-question-circle"></i></a></div>
+                            <div class="custom-control custom-checkbox">
+                                <input v-model="today" type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                                <label class="custom-control-label" for="customCheck">Today</label>
+                            </div>
+                        </div>
+                        <div class="card animated slideInLeft border-0" style="a">
+                            <div class="h4 card-header bg-blue white">Rooms</div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item animated slideInLeft"><a href="{{ route('sort.room', ['id' => 1]) }}"><i class="fa fa-map-marker-alt"></i> FIK LAB 301</a></li>
-                                <li class="list-group-item animated slideInLeft delay-1"><a href="{{ route('sort.room', ['id' => 2]) }}"><i class="fa fa-map-marker-alt"></i> FIK LAB 302</a></li>
-                                <li class="list-group-item animated slideInLeft delay-2"><a href="{{ route('sort.room', ['id' => 3]) }}"><i class="fa fa-map-marker-alt"></i> FIK LAB 303</a></li>
-                                <li class="list-group-item animated slideInLeft delay-3"><a href="{{ route('sort.room', ['id' => 4]) }}"><i class="fa fa-map-marker-alt"></i> FIK LAB 401</a></li>
-                                <li class="list-group-item animated slideInLeft delay-4"><a href="{{ route('sort.room', ['id' => 5]) }}"><i class="fa fa-map-marker-alt"></i> FIK LAB 402</a></li>
-                                <li class="list-group-item animated slideInLeft delay-5"><a href="{{ route('sort.room', ['id' => 6]) }}"><i class="fa fa-map-marker-alt"></i> FIK LAB 403</a></li>
+                                <li class="list-group-item animated slideInLeft"><a @click.prevent="sortRoom(1)" href=""><i class="fa fa-map-marker-alt"></i> FIK LAB 301</a></li>
+                                <li class="list-group-item animated slideInLeft delay-1"><a @click.prevent="sortRoom(2)" href=""><i class="fa fa-map-marker-alt"></i> FIK LAB 302</a></li>
+                                <li class="list-group-item animated slideInLeft delay-2"><a @click.prevent="sortRoom(3)" href=""><i class="fa fa-map-marker-alt"></i> FIK LAB 303</a></li>
+                                <li class="list-group-item animated slideInLeft delay-3"><a @click.prevent="sortRoom(4)" href=""><i class="fa fa-map-marker-alt"></i> FIK LAB 401</a></li>
+                                <li class="list-group-item animated slideInLeft delay-4"><a @click.prevent="sortRoom(5)" href=""><i class="fa fa-map-marker-alt"></i> FIK LAB 402</a></li>
+                                <li class="list-group-item animated slideInLeft delay-5"><a @click.prevent="sortRoom(6)" href=""><i class="fa fa-map-marker-alt"></i> FIK LAB 403</a></li>
                             </ul>
                         </div>
+                        <!-- Room -->
                     </div>
                 </div>
                 <div class="col-md-9">
                     <div class="card border-0 p-3">
-                        <div class="full-screen animated zoomInDown" id="fullscreen">
+                        <div class="full-screen" id="fullscreen">
                             <span class="fa fa-compress-arrows-alt text-muted"></span>
                         </div>
                         <div class="container">
@@ -64,87 +73,34 @@
                             <!-- Breadcrumb -->
                             
                             <!-- List Schedule -->
-                            <div class="row mt-4">
-                            @foreach($data as $d)
-                                <div class="col-md-4 mb-4 list-reveal">
-                                    <div class="card border-0 shadow-sm card-course card-height">
-                                        <div class="text-center {{ $colors[rand(0, count($colors)-1)] }} pt-3" style="width: 100%; height: 115px">
-                                            <div class="display-3 white">{{ $d->initial }}</div>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="h2 card-title">{{ $d->course_name }}</div>
-                                            
-
-                                            <table class="table table-sm table-borderless">
-                                                <tr>
-                                                    <th><i class="h3 fa fa-user-tie"></i></th>
-                                                    <td><div class="h5 text-muted">{{ $d->lecturer->name }}</div></td>
-                                                </tr>
-                                                <tr>
-                                                    <th><i class="h3 fa fa-chalkboard-teacher"></i></th>
-                                                    <td><div class="h5 text-muted">{{ $d->sks }} SKS</div></td>
-                                                </tr>
-                                                <tr>
-                                                    <th><i class="h3 fa fa-map-marker-alt"></i></th>
-                                                    <td><div class="h5 text-muted">{{ $d->room->room }}</div></td>
-                                                </tr>
-                                                <tr>
-                                                    <th><i class=" h3 far fa-calendar"></i></th>
-                                                    <td><div class="h5 text-muted">{{ ucfirst($d->day) }}</div></td>
-                                                </tr>
-                                                <tr>
-                                                    <th><i class="h3 far fa-clock"></i></th>
-                                                    <td><div class="h5 text-muted">{{ $d->time }}</div></td>
-                                                </tr>
-                                            </table>
-                                        </div>
+                            <div class="mypreload">
+                                <!-- Preloader -->
+                                <span v-if="myload" class="myload text-center pt-5">
+                                    <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;" role="status">
+                                        <span class="sr-only">Loading...</span>
                                     </div>
+                                </span>
+                                <!-- Preloader -->
+                                <div class="row mt-4">
+                                <course
+                                    v-for="course in courses"
+                                    v-bind="course"
+                                    :key="course.id"
+                                ></course>
                                 </div>
-                            @endforeach
                             </div>
                             <!-- List Schedule -->
                             <!-- List Schedule Full Screen -->
-                            <div class="p-3 pt-5 animated fadeInUp" id="full-cont">
+                            <div class="p-3 pt-5 animated zoomIn" id="full-cont">
                                 <div id="close-btn" class="text-muted">
                                     <span>&times;</span>
                                 </div>
                                 <div class="row">
-                                @foreach($data as $d)
-                                    <div class="col-md-3 mb-4">
-                                        <div class="card border-0 shadow-sm card-course">
-                                            <div class="text-center {{ $colors[rand(0, count($colors)-1)] }} pt-3" style="width: 100%; height: 115px">
-                                                <div class="display-3 white">{{ $d->initial }}</div>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="h2 card-title">{{ $d->course_name }}</div>
-                                                
-
-                                                <table class="table table-sm table-borderless">
-                                                    <tr>
-                                                        <th><i class="h3 fa fa-user-tie"></i></th>
-                                                        <td><div class="h5 text-muted">{{ $d->lecturer->name }}</div></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th><i class="h3 fa fa-chalkboard-teacher"></i></th>
-                                                        <td><div class="h5 text-muted">{{ $d->sks }} SKS</div></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th><i class="h3 fa fa-map-marker-alt"></i></th>
-                                                        <td><div class="h5 text-muted">{{ $d->room->room }}</div></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th><i class=" h3 far fa-calendar"></i></th>
-                                                        <td><div class="h5 text-muted">{{ ucfirst($d->day) }}</div></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th><i class="h3 far fa-clock"></i></th>
-                                                        <td><div class="h5 text-muted">{{ $d->time }}</div></td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
+                                <course-full
+                                    v-for="course in courses"
+                                    v-bind="course"
+                                    :key="course.id"
+                                ></course-full>
                                 </div>
                             </div>
                             <!-- List Schedule Full Screen -->

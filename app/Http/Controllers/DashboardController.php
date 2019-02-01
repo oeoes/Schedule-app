@@ -20,7 +20,7 @@ class DashboardController extends Controller
     }
     public function home()
     {
-        $data = Course::with('lecturer', 'room')->get();
+        $data = Course::with('lecturer', 'room')->orderBy('room_id')->get();
         return view('dashboard.home')->with(['data' => $data, 'colors' => $this->colors]);
     }
 
@@ -42,10 +42,13 @@ class DashboardController extends Controller
 
     public function sortCourse()
     {
-        $hari = request('hari');
-        $data = Course::with('lecturer', 'room')->where('day', request('hari'))->get();
+        $data = Course::with('lecturer', 'room')->where('day', request('hari'))->orderBy('room_id')->get();
 
-        return view('dashboard.home')->with(['data' => $data, 'hari' => $hari, 'colors' => $this->colors]);
+        return view('dashboard.home')->with([
+                'data' => $data, 
+                'hari' => request('hari'), 
+                'colors' => $this->colors
+            ]);
     }
 
     public function updateCourse()
