@@ -106,7 +106,7 @@
 }
 
 .card-height{
-    height: 415px;
+    height: 450px;
 }
 
 .card-height-d{
@@ -128,4 +128,96 @@
 
 .myload div{
     margin-top: 10%
+}
+
+.border-radius-0{
+    border-radius: 0;
+}
+
+/* Font Size */
+.fs-100{
+    font-size: 100px;
+}
+.fs-110{
+    font-size: 110px;
+}
+.fs-120{
+    font-size: 100px;
+}
+.fs-130{
+    font-size: 100px;
+}
+.fs-140{
+    font-size: 100px;
+}
+.fs-150{
+    font-size: 100px;
+}
+.fs-160{
+    font-size: 100px;
+}
+.fs-170{
+    font-size: 100px;
+}
+.fs-180{
+    font-size: 100px;
+}
+.fs-190{
+    font-size: 100px;
+}
+.fs-200{
+    font-size: 100px;
+}
+
+.card-lecturer{
+    transition: all .4s ease;
+}
+
+.card-lecturer:hover{
+    animation: zoom .4s;
+    animation-fill-mode: both;
+    background: #f2f4f8;
+    cursor: pointer;
+}
+@keyframes zoom{
+    from{
+        transform: scale(1)
+    }
+    to{
+        transform: scale(.97)
+    }
+}
+
+.state{
+    border-radius: 20px;
+}
+.state-width{
+    width: 50%;
+    font-size: 95%
+}
+
+.status-class{
+    border-radius: 20px;
+    font-size: 70%;
+    padding: 5px 10px 5px 10px;
+    font-weight: bold;
+    width: 120px;
+}
+.started{
+    animation: life 1.1s ease infinite;
+}
+
+.menu:hover{
+    animation: zoom .4s;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+}
+.menu .card{
+    height: 290px
+}
+
+.display-5{
+    font-size: 2.3rem;
+    font-weight: 300;
+    line-height: 1.2;
 }
