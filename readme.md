@@ -21,8 +21,8 @@
 </p>
 
 
-# Schedule v1.0.1
+# Schedule v1.1.0
 ### What's new?
-* Adding vue components
-* Request asynchronous using axios
-* Tambahan filter untuk pengurutan kelas
+* Course state notifications (start, end, queue) 
+* Lecturer availability
+* Style improvements
