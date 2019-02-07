@@ -19,8 +19,10 @@ class CreateCoursesTable extends Migration
             $table->string('initial');
             $table->integer('lecturer_id')->unsigned();
             $table->string('day');
-            $table->time('time');
+            $table->time('time_begin');
+            $table->time('time_finish');
             $table->char('sks');
+            $table->enum('status', ['start', 'end', 'queue'])->default('queue');
             $table->integer('room_id')->unsigned();
             $table->timestamps();
         });

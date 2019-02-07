@@ -16,6 +16,7 @@ class CreateLecturersTable extends Migration
         Schema::create('lecturers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->enum('state', ['available', 'unavailable'])->default('available');
             $table->timestamps();
         });
     }
