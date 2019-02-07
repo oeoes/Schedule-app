@@ -34,7 +34,8 @@ class AppSeeder extends Seeder
                 'initial' => $inisial[$i],
                 'lecturer_id' => 1,
                 'day' => 'monday',
-                'time' => $time[$i],
+                'time_begin' => '08:00:00',
+                'time_finish' => '10:00:00',
                 'sks' => '3',
                 'room_id' => $i+1,
             ]);
@@ -48,7 +49,8 @@ class AppSeeder extends Seeder
                 'initial' => $inisial[$i],
                 'lecturer_id' => 2,
                 'day' => 'tuesday',
-                'time' => $time[0],
+                'time_begin' => '08:00:00',
+                'time_finish' => '10:00:00',
                 'sks' => '3',
                 'room_id' => 5,
             ]);
@@ -62,7 +64,8 @@ class AppSeeder extends Seeder
                 'initial' => $inisial[$i],
                 'lecturer_id' => 3,
                 'day' => 'wednesday',
-                'time' => $time[1],
+                'time_begin' => '08:00:00',
+                'time_finish' => '10:00:00',
                 'sks' => '3',
                 'room_id' => 6,
             ]);
@@ -76,7 +79,8 @@ class AppSeeder extends Seeder
                 'initial' => $inisial[$i],
                 'lecturer_id' => 4,
                 'day' => 'thursday',
-                'time' => $time[$i],
+                'time_begin' => '08:00:00',
+                'time_finish' => '10:00:00',
                 'sks' => '3',
                 'room_id' => $i+1,
             ]);
@@ -90,7 +94,8 @@ class AppSeeder extends Seeder
                 'initial' => $inisial[$i],
                 'lecturer_id' => 5,
                 'day' => 'friday',
-                'time' => $time[3],
+                'time_begin' => '08:00:00',
+                'time_finish' => '10:00:00',
                 'sks' => '3',
                 'room_id' => 5,
             ]);

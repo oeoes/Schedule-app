@@ -12,10 +12,10 @@
                 <div class="row">
                     <div class="col-md-8 p-4">
                         <div class="text-muted animated slideInLeft">{{ \Carbon\Carbon::now('Asia/Jakarta')->toDayDateTimeString() }}</div>
-                        <div class="display-3 animated slideInLeft delay-4">Dashboard</div>
+                        <div class="display-4 animated slideInLeft delay-4">Dashboard</div>
                     </div>
                     <div class="col-md-4">
-                        <div class="display-4 text-center p-4 mt-4 float-right animated zoomIn">
+                        <div class="display-5 text-center p-4 mt-4 float-right animated zoomIn">
                            <i class="far fa-clock clock-animated"></i> <span id="time-schedule"></span>
                         </div>
                     </div>
@@ -46,9 +46,9 @@
                                 <div class="form-group">
                                     <label for="lecturer_id">Lecturer</label>
                                     <select name="lecturer_id" id="" class="form-control">
-                                        <option value="1">Ridwan</option>
-                                        <option value="2">Indra</option>
-                                        <option value="3">Ichsan</option>
+                                        @foreach($lecturer as $l)
+                                            <option value="{{ $l->id }}">{{ $l->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
@@ -64,8 +64,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="time">Time</label>
-                                    <input name="time" type="time" class="form-control">
+                                    <label for="time_begin">Mulai</label>
+                                    <input name="time_begin" type="time" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="time_finish">Selesai</label>
+                                    <input name="time_finish" type="time" class="form-control">
                                 </div>
 
                                 <div class="form-group">
@@ -163,7 +168,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th><i class="h3 far fa-clock"></i></th>
-                                                    <td><div class="h5 text-muted">{{ $d->time }}</div></td>
+                                                    <td><div class="h5 text-muted">{{ $d->time_begin }} - {{ $d->time_finish }}</div></td>
                                                 </tr>
                                             </table>
                                             
@@ -208,7 +213,17 @@
 
                                                     <div class="form-group">
                                                         <label for="lecturer_id">Lecturer</label>
-                                                        {{ Form::select('lecturer_id', ['1' => 'Ridwan', '2' => 'Indra', '3' => 'Ichsan'], $d->lecturer_id, ['class' => 'form-control', 'id' => 'lecturer_id']) }}
+                                                        <!-- {{ Form::select('lecturer_id', ['1' => 'Ridwan', '2' => 'Indra', '3' => 'Ichsan'], $d->lecturer_id, ['class' => 'form-control', 'id' => 'lecturer_id']) }} -->
+                                                        <select name="lecturer_id" id="" class="form-control">
+                                                            @foreach($lecturer as $l)
+                                                                @if($d->lecturer_id == $l->id)
+                                                                    <option value="{{ $l->id }}" selected>{{ $l->name }}</option>
+                                                                @else
+                                                                    <option value="{{ $l->id }}">{{ $l->name }}</option>
+                                                                @endif
+
+                                                            @endforeach
+                                                        </select>
                                                     </div>
 
                                                     <div class="form-group">
@@ -217,8 +232,13 @@
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label for="time">Time</label>
-                                                        <input name="time" type="time" class="form-control" value="{{ $d->time }}">
+                                                        <label for="time_begin">Time</label>
+                                                        <input name="time_begin" type="time" class="form-control" value="{{ $d->time_begin }}">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="time_finish">Time</label>
+                                                        <input name="time_finish" type="time" class="form-control" value="{{ $d->time_finish }}">
                                                     </div>
 
                                                     <div class="form-group">
@@ -229,6 +249,11 @@
                                                     <div class="form-group">
                                                         <label for="room_id">Place</label>
                                                         {{ Form::select('room_id', ['1' => 'LAB 301', '2' => 'LAB 302', '3' => 'LAB 303', '4' => 'LAB 401', '5' => 'LAB 402', '6' => 'LAB 403'], $d->room_id, ['class' => 'form-control']) }}
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="status">Status</label>
+                                                        {{ Form::select('status', ['queue' => 'Belum Dimulai', 'start' => 'Sudah Dimulai', 'end' => 'Selesai'], $d->status, ['class' => 'form-control']) }}
                                                     </div>
 
                                                     <div class="form-group">

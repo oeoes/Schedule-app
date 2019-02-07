@@ -5,15 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Course;
 use Carbon\Carbon;
+use App\Room;
+use App\Lecturer;
 
 class AppController extends Controller
 {
-    // Create random colors for background course list
-    public $colors = [
-        'bg-navy', 'bg-blue', 'bg-aqua', 'bg-teal', 'bg-olive', 'bg-green', 'bg-lime', 'bg-yellow', 'bg-orange', 'bg-red',
-        'bg-maroon', 'bg-fuchsia', 'bg-purple', 'bg-gray'
-    ];
-
+    // Showing index page with corses with today's courses
     public function index()
     {
         $day = Carbon::now('Asia/Jakarta');
@@ -22,12 +19,14 @@ class AppController extends Controller
 
         $data = Course::where('day', $day_course)->with('lecturer', 'room')->get();
         
-        return view('index')->with(['data' => $data, 'day_course' => $day_course, 'colors' => $this->colors]);
+        return view('index')->with(['data' => $data, 'day_course' => $day_course]);
     }
     
     /*
     * For Api
     */
+    
+    // Getting today's courses asynchronously
     public function courseList()
     {
         $day = Carbon::now('Asia/Jakarta');
@@ -38,6 +37,58 @@ class AppController extends Controller
         return $data;
     }
 
+    // Check status changes of courses (start time, finish time) asynchronously
+    public function changeState()
+    {
+        $day = Carbon::now('Asia/Jakarta');
+        $course = Course::where('time_begin', $day->toTimeString())->where('day', $day->format('l'))->get();
+        $course1 = Course::where('time_finish', $day->toTimeString())->where('day', $day->format('l'))->get();
+
+        // Update all courses status to default (queue / belum dimulai) when the time reaches 05.00 PM
+        // Or when lab secretary closed
+        if($day->toTimeString() == '17:00:00')
+        {
+            $lab_closed = Course::where('day', $day->format('l'))->get();
+
+            foreach ($lab_closed as $c) {
+                $c->status = 'queue';
+                $c->save();
+            }
+            return response()->json(Course::where('day', $day->format('l'))->with('lecturer', 'room')->orderBy('room_id')->get());
+        }
+
+        // Update started course status to 'start'
+        foreach ($course as $c) {
+            $c->status = 'start';
+            $c->save();
+        }
+        
+        // Update finished course status to 'end'
+        foreach ($course1 as $c) {
+            $c->status = 'end';
+            $c->save();
+        }
+
+        // Return data wheter started course or finished course available, 
+        // but not if both of them are empty of false
+        if(count($course) || count($course1))
+        {
+            return response()->json(Course::where('day', $day->format('l'))->with('lecturer', 'room')->orderBy('room_id')->get());
+        }
+    }
+
+    // Getting lecturers list asynchronously
+    public function apiLecturer()
+    {
+        $lec = Lecturer::orderBy('name')->orderBy('updated_at', 'DESC')->get();
+        return $lec;
+    }
+
+    /*
+    */
+
+    // Sort room by room id and state(today) if today checkbox was checked,
+    // otherwise just sort based on room_id
     public function sortRoom($id, $state)
     {
         $day = Carbon::now('Asia/Jakarta');
@@ -51,5 +102,10 @@ class AppController extends Controller
         }
     }
 
+    // View lecturer page
+    public function lecturer()
+    {
+        return view('lecturer');
+    }
     
 }

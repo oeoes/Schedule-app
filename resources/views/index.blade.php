@@ -12,10 +12,10 @@
                 <div class="row">
                     <div class="col-md-8 p-4">
                         <div class="text-muted animated slideInLeft">{{ \Carbon\Carbon::now('Asia/Jakarta')->toDayDateTimeString() }}</div>
-                        <div class="display-3 animated slideInLeft delay-3">Schedule</div>
+                        <div class="display-4 animated slideInLeft delay-3">Schedule</div>
                     </div>
                     <div class="col-md-4">
-                        <div class="display-4 text-center p-4 mt-4 float-right">
+                        <div class="display-5 text-center p-4 mt-4 float-right">
                            <i class="far fa-clock clock-animated"></i> <span id="time-schedule"></span>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                     <div class="card border-0 p-3">
                         <!-- Room -->
                         <div class="card border-0 p-2 mb-1">
-                        <div class="h6">Filter : <a href="#" title="Filter by today" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Dengan filter today, pencarian hanya akan menghasilkan jadwal hari ini (today) dengan ruangan yang dipilih"><i class="far fa-question-circle"></i></a></div>
+                        <div class="h6">Filter : <a @click.prevent="nothing" href="" title="Filter by today" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Dengan filter today, pencarian hanya akan menghasilkan jadwal hari ini (today) dengan ruangan yang dipilih"><i class="far fa-question-circle"></i></a></div>
                             <div class="custom-control custom-checkbox">
                                 <input v-model="today" type="checkbox" class="custom-control-input" id="customCheck" name="example1">
                                 <label class="custom-control-label" for="customCheck">Today</label>
