@@ -232,12 +232,12 @@
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label for="time_begin">Time</label>
+                                                        <label for="time_begin">Mulai</label>
                                                         <input name="time_begin" type="time" class="form-control" value="{{ $d->time_begin }}">
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label for="time_finish">Time</label>
+                                                        <label for="time_finish">Selesai</label>
                                                         <input name="time_finish" type="time" class="form-control" value="{{ $d->time_finish }}">
                                                     </div>
 

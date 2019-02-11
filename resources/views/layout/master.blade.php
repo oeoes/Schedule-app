@@ -32,7 +32,7 @@
 <!-- Flash message -->
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-blue fixed-top">
-        <a href="#" class="navbar-brand">Schedule App</a>
+        <a href="#" class="navbar-brand">Schedule</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#mymenu">
             <span class="navbar-toggler-icon"></span>
         </button>

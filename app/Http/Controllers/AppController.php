@@ -10,12 +10,11 @@ use App\Lecturer;
 
 class AppController extends Controller
 {
-    // Showing index page with corses with today's courses
+    // Showing index page with today's courses
     public function index()
     {
         $day = Carbon::now('Asia/Jakarta');
         $day_course = $day->format('l');
-        // $day_course = 'monday';
 
         $data = Course::where('day', $day_course)->with('lecturer', 'room')->get();
         
@@ -31,7 +30,6 @@ class AppController extends Controller
     {
         $day = Carbon::now('Asia/Jakarta');
         $day_course = $day->format('l');
-        // $day_course = 'monday';
 
         $data = Course::where('day', $day_course)->with('lecturer', 'room')->orderBy('room_id')->get();
         return $data;
@@ -46,7 +44,7 @@ class AppController extends Controller
 
         // Update all courses status to default (queue / belum dimulai) when the time reaches 05.00 PM
         // Or when lab secretary closed
-        if($day->toTimeString() == '17:00:00')
+        if($day->toTimeString() == env('CLOSED_TIME'))
         {
             $lab_closed = Course::where('day', $day->format('l'))->get();
 
