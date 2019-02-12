@@ -44,7 +44,7 @@ class AppController extends Controller
 
         // Update all courses status to default (queue / belum dimulai) when the time reaches 05.00 PM
         // Or when lab secretary closed
-        if($day->toTimeString() == env('CLOSED_TIME'))
+        if($day->toTimeString() == '22:41:00')
         {
             $lab_closed = Course::where('day', $day->format('l'))->get();
 

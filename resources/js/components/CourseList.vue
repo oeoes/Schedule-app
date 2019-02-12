@@ -29,12 +29,14 @@
                         <th><i class="h3 far fa-clock"></i></th>
                         <td>
                             <div class="h5 text-muted">{{ time_begin }} - {{ time_finish }} </div>
-
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <div v-if="status == 'queue'" class="btn btn-secondary status-class"><span class="">Belum Dimulai</span></div>
                             <div v-else-if="status == 'start'" class="btn btn-success status-class started"><span class="">Sudah Dimulai</span></div>
                             <div v-else class="btn btn-danger status-class animated shake"><span class="">Berakhir</span></div>
                         </td>
-
                     </tr>
                 </table>
             </div>

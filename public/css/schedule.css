@@ -201,7 +201,7 @@
     font-size: 70%;
     padding: 5px 10px 5px 10px;
     font-weight: bold;
-    width: 120px;
+    width: 100%;
 }
 .started{
     animation: life 1.1s ease infinite;

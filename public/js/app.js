@@ -1807,6 +1807,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1842,6 +1844,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -36965,8 +36970,12 @@ var render = function() {
                         _vm._s(_vm.time_finish) +
                         " "
                     )
-                  ]),
-                  _vm._v(" "),
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { attrs: { colspan: "2" } }, [
                   _vm.status == "queue"
                     ? _c(
                         "div",
@@ -37125,8 +37134,12 @@ var render = function() {
                       _vm._s(_vm.time_finish) +
                       " "
                   )
-                ]),
-                _vm._v(" "),
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", { attrs: { colspan: "2" } }, [
                 _vm.status == "queue"
                   ? _c(
                       "div",
@@ -48781,7 +48794,7 @@ var app = new Vue({
 
       this.lecturers = []; // Axios with method GET, it should use POST method, i'll figure it out later :)
 
-      window.axios.get('http://localhost:8000/schedule/dashboard/api/lecturers/add/' + this.lecturer_name).then(function (_ref10) {
+      window.axios.get('http://localhost:8000/schhpedule/dashboard/api/lecturers/add/' + this.lecturer_name).then(function (_ref10) {
         var data = _ref10.data;
         data.forEach(function (lecturer) {
           _this7.lecturers.push(new Lecturer(lecturer));
