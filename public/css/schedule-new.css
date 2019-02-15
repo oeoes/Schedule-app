@@ -1,0 +1,57 @@
+.room-label{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    min-height: 90px;
+    color: white
+}
+
+.up-next{
+    width: 100%;
+    padding: 10px;
+    background: gray;
+    border: none
+}
+
+.photo-face{
+    height: 70px;
+    width: 70px;
+}
+
+.side-border{
+    border-right: 2px solid #80808069;
+    height: 100%;
+    position: relative;
+}
+.point1{
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    background: white;
+    border: 5px solid #80808069;
+    border-radius: 100%;
+    top: 0px;
+    left: -14px;
+}
+.point2{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    background: white;
+    border: 4px solid #80808069;
+    border-radius: 100%;
+    top: 132px;
+    left: -11.5px;
+}
+.point3{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background: white;
+    border: 3px solid #80808069;
+    border-radius: 100%;
+    top: 305px;
+    left: -6px;
+}
+
+/* Bootstrap config */

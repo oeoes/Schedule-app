@@ -17,6 +17,7 @@ class CreateCoursesTable extends Migration
             $table->increments('id');
             $table->string('course_name');
             $table->string('initial');
+            $table->string('sesi');
             $table->integer('lecturer_id')->unsigned();
             $table->string('day');
             $table->time('time_begin');

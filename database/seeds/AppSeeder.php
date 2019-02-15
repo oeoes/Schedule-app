@@ -32,6 +32,7 @@ class AppSeeder extends Seeder
             Course::create([
                 'course_name' => $matkul[$i],
                 'initial' => $inisial[$i],
+                'sesi' => '1',
                 'lecturer_id' => 1,
                 'day' => 'monday',
                 'time_begin' => '08:00:00',
@@ -47,6 +48,7 @@ class AppSeeder extends Seeder
             Course::create([
                 'course_name' => $matkul[$i],
                 'initial' => $inisial[$i],
+                'sesi' => '2',
                 'lecturer_id' => 2,
                 'day' => 'tuesday',
                 'time_begin' => '08:00:00',
@@ -62,6 +64,7 @@ class AppSeeder extends Seeder
             Course::create([
                 'course_name' => $matkul[$i],
                 'initial' => $inisial[$i],
+                'sesi' => '1',
                 'lecturer_id' => 3,
                 'day' => 'wednesday',
                 'time_begin' => '08:00:00',
@@ -77,6 +80,7 @@ class AppSeeder extends Seeder
             Course::create([
                 'course_name' => $matkul[$i],
                 'initial' => $inisial[$i],
+                'sesi' => '1',
                 'lecturer_id' => 4,
                 'day' => 'thursday',
                 'time_begin' => '08:00:00',
@@ -92,6 +96,7 @@ class AppSeeder extends Seeder
             Course::create([
                 'course_name' => $matkul[$i],
                 'initial' => $inisial[$i],
+                'sesi' => '1',
                 'lecturer_id' => 5,
                 'day' => 'friday',
                 'time_begin' => '08:00:00',

@@ -39,12 +39,15 @@ class AppController extends Controller
     public function changeState()
     {
         $day = Carbon::now('Asia/Jakarta');
+
+        /* Auto Start and stop
         $course = Course::where('time_begin', $day->toTimeString())->where('day', $day->format('l'))->get();
         $course1 = Course::where('time_finish', $day->toTimeString())->where('day', $day->format('l'))->get();
+        */
 
         // Update all courses status to default (queue / belum dimulai) when the time reaches 05.00 PM
         // Or when lab secretary closed
-        if($day->toTimeString() == '22:41:00')
+        if($day->toTimeString() == '17:00:00')
         {
             $lab_closed = Course::where('day', $day->format('l'))->get();
 
@@ -56,23 +59,26 @@ class AppController extends Controller
         }
 
         // Update started course status to 'start'
-        foreach ($course as $c) {
-            $c->status = 'start';
-            $c->save();
-        }
+        // foreach ($course as $c) {
+        //     $c->status = 'start';
+        //     $c->save();
+        // }
         
         // Update finished course status to 'end'
-        foreach ($course1 as $c) {
-            $c->status = 'end';
-            $c->save();
-        }
+        // foreach ($course1 as $c) {
+        //     $c->status = 'end';
+        //     $c->save();
+        // }
 
         // Return data wheter started course or finished course available, 
         // but not if both of them are empty of false
+        /*
         if(count($course) || count($course1))
         {
             return response()->json(Course::where('day', $day->format('l'))->with('lecturer', 'room')->orderBy('room_id')->get());
         }
+        */
+        return response()->json(Course::where('day', $day->format('l'))->with('lecturer', 'room')->orderBy('room_id')->get());
     }
 
     // Getting lecturers list asynchronously

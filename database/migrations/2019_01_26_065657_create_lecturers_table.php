@@ -16,6 +16,10 @@ class CreateLecturersTable extends Migration
         Schema::create('lecturers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('photo')->default('user.svg');
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->enum('is_claimed', ['y', 'n'])->default('n');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->enum('state', ['available', 'unavailable'])->default('available');
             $table->timestamps();
         });

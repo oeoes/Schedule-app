@@ -7,7 +7,7 @@ use App\Course;
 
 class Lecturer extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'photo'];
 
     public function course()
     {

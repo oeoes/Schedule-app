@@ -18,7 +18,7 @@ class DashboardController extends Controller
     // Protecting for authenticated admin
     public function __construct()
     {
-        return $this->middleware('auth');
+        return $this->middleware(['auth', 'auth-admin']);
     }
     
     public function lecturer()
@@ -49,12 +49,21 @@ class DashboardController extends Controller
         return response()->json($lec);
     }
 
-    public function addLecturer($lecturer_name)
+    public function addLecturer()
     {
-        Lecturer::create(['name' => $lecturer_name]);
-        $baru = Lecturer::orderBy('state')->orderBy('updated_at', 'DESC')->get();
+        $gambar = request()->file('photo');
+        $nama = time().'.'.$gambar->getClientOriginalExtension();
+        $path = public_path('/images');
 
-        return response()->json($baru);
+        $gambar->move($path, $nama);
+
+        Lecturer::create([
+            'name' => request('name'),
+            'photo' => $nama
+        ]);
+
+        session()->flash('message', 'Dosen telah ditambahkan');
+        return back();
     }
 
     public function home()
@@ -70,6 +79,7 @@ class DashboardController extends Controller
             'course_name' => request('course_name'),
             'lecturer_id' => request('lecturer_id'),
             'initial' => request('initial'),
+            'sesi' => request('sesi'),
             'day' => request('day'),
             'time_begin' => request('time_begin'),
             'time_finish' => request('time_finish'),
@@ -100,6 +110,7 @@ class DashboardController extends Controller
 
         $course->course_name = request('course_name');
         $course->initial = request('initial');
+        $course->sesi = request('sesi');
         $course->lecturer_id = request('lecturer_id');
         $course->day = request('day');
         $course->time_begin = request('time_begin');

@@ -221,3 +221,25 @@
     font-weight: 300;
     line-height: 1.2;
 }
+
+.rd-10{
+    border-radius: 10px
+}
+.rd-15{
+    border-radius: 15px
+}
+.rd-20{
+    border-radius: 20px
+}
+.rd-25{
+    border-radius: 25px
+}
+.rd-30{
+    border-radius: 30px
+}
+.rd-35{
+    border-radius: 35px
+}
+.rd-40{
+    border-radius: 40px
+}

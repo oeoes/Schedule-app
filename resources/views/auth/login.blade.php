@@ -33,6 +33,9 @@
                                 <button type="submit" class="btn btn-success form-control">Ok <i class="fa fa-check"></i></button>
                             </div>
                         </form>
+
+                        <a href="{{ route('lecturer.login') }}">Dosen Login</a>
+
                         @if(count($errors))
                         <div class="alert alert-danger">
                             <div class="h5">Aww Snap!</div>

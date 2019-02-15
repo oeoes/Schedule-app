@@ -2,8 +2,8 @@
     <div class="card border-0 p-3 mb-1 card-lecturer">
         <div class="row">
             <div class="col-2">
-                <div class="rounded-circle bg-teal" style="height: 65px; width: 65px">
-                
+                <div class="rounded-circle" style="height: 65px; width: 65px; overflow: hidden">
+                    <img class="img-fluid" :src="path" alt="">
                 </div>
             </div>
             <div class="col-6">
@@ -36,12 +36,13 @@
 
 <script>
 export default {
-    props: ['id', 'name', 'state'],
+    props: ['id', 'name', 'state', 'photo'],
     data() {
         return {
             certaian_state: this.state,
             okload: false,
-            checkload: false
+            checkload: false,
+            path: 'http://localhost:8000/images/'+this.photo
         }
     },
     methods: {

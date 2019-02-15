@@ -31,13 +31,18 @@
                 <div class="col-md-3">
                     <div class="card border-0 p-3">
                         <div class="h3 text-center">Add Lecturer</div>
-                        <form action="">
+                        <form action="{{ route('lecturer.add') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input v-model="lecturer_name" id="name" type="text" class="form-control">
+                                <input name="name" id="name" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <div @click="addLecturer" class="btn btn-secondary form-control">Add</div>
+                                <label for="photo">Upload gambar</label>
+                                <input class="form-control-file" id="photo" type="file" name="photo">
+                            </div>
+                            <div class="form-group">
+                                <input class="btn btn-secondary form-control" type="submit" value="Add">
                             </div>
                         </form>
                     </div>

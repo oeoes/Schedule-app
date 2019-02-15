@@ -44,6 +44,11 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="sesi">Sesi</label>
+                                    <input name="sesi" type="text" class="form-control">
+                                </div>
+
+                                <div class="form-group">
                                     <label for="lecturer_id">Lecturer</label>
                                     <select name="lecturer_id" id="" class="form-control">
                                         @foreach($lecturer as $l)
@@ -167,6 +172,10 @@
                                                     <td><div class="h5 text-muted">{{ ucfirst($d->day) }}</div></td>
                                                 </tr>
                                                 <tr>
+                                                    <th><i class=" h3 far fa-calendar"></i></th>
+                                                    <td><div class="h5 text-muted">Sesi {{ $d->sesi }}</div></td>
+                                                </tr>
+                                                <tr>
                                                     <th><i class="h3 far fa-clock"></i></th>
                                                     <td><div class="h5 text-muted">{{ $d->time_begin }} - {{ $d->time_finish }}</div></td>
                                                 </tr>
@@ -209,6 +218,11 @@
                                                     <div class="form-group">
                                                         <label for="initial">Course Initial</label>
                                                         <input name="initial" type="text" class="form-control" value="{{ $d->initial }}">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="sesi">Sesi</label>
+                                                        <input name="sesi" type="text" class="form-control" value="{{ $d->sesi }}">
                                                     </div>
 
                                                     <div class="form-group">
