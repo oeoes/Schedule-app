@@ -21,8 +21,5 @@
 </p>
 
 
-# Schedule v1.1.0
-### What's new?
-* Course state notifications (start, end, queue) 
-* Lecturer availability
-* Style improvements
+# Schedule v2.0.0
+
