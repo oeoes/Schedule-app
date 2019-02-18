@@ -110,7 +110,7 @@
 }
 
 .card-height-d{
-    height: 490px;
+    height: 540px;
 }
 
 .mypreload{
@@ -242,4 +242,26 @@
 }
 .rd-40{
     border-radius: 40px
+}
+
+.min-height{
+    min-height: 430px
+}
+
+.bg-room{
+    background: #250070;
+}
+
+.btnstart{
+    font-size: 10rem;
+    color: white;
+}
+.btnstart i{
+    transition: all .19s ease-in;
+}
+.btnstart:hover i{
+    color: #00fee6
+}
+.btnstart:hover .fa-stop-circle{
+    color: #b40000
 }

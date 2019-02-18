@@ -10,7 +10,11 @@
                 <div class="row">
                     <div class="col-1">
                         <div class="side-border">
-                            <div class="point1"></div>
+                            <div class="point1">
+                                <div class="spinner-grow mb-1" style="width: 2.1rem!important; height: 2.1rem!important; position: absolute; top: -5px; left: -5.5px" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
                             <div class="point2"></div>
                             <div class="point3"></div>
                         </div>
@@ -31,7 +35,11 @@
                                     </div>
                                     <div class="col-12">
                                         <div v-if="status == 'queue'" class="h5 text-danger">Offline</div>
-                                        <div v-else class="h5 text-success">Online</div>
+                                        <div v-else class="h5 text-success">
+                                            <div class="spinner-grow mb-1" style="width: 1.2rem; height: 1.2rem;" role="status">
+                                                <span class="sr-only">Loading...</span>
+                                            </div>Online
+                                        </div>
                                     </div>
                                     <div class="col-12">
                                         <div v-if="status == 'queue'" class="btn btn-secondary status-class"><span class="">Belum Dimulai</span></div>
@@ -51,6 +59,10 @@
                                 <th><i class="h1 far fa-clock"></i></th> 
                                 <td><div class="h3 text-muted">{{ time_begin }} s/d {{ time_finish }}</div></td>
                             </tr>
+                            <tr>
+                                <th><i class="h1 fa fa-info-circle"></i></th> 
+                                <td><div class="h3 text-muted">Sesi {{ sesi }}</div></td>
+                            </tr>
                         </table>
                         <!-- Table -->
                     </div>
@@ -69,7 +81,7 @@
                         </div>
                     </div>
                 </div>
-                <div v-else class="h1">
+                <div v-else class="h2 text-center">
                     Final Class
                 </div>
             </div>
@@ -84,7 +96,7 @@ export default {
             path: 'http://localhost:8000/images/'+this.photo
         }
     },
-    props: ['initial', 'course_name', 'lecturer', 'photo', 'sks', 'room', 'day', 'time_begin', 'time_finish', 'status', 'next_course', 'next_time_begin', 'next_time_finish'],
+    props: ['initial', 'sesi', 'course_name', 'lecturer', 'photo', 'sks', 'room', 'day', 'time_begin', 'time_finish', 'status', 'next_course', 'next_time_begin', 'next_time_finish'],
     filters: {
         upper: function(value){
             return value.charAt(0).toUpperCase() + value.slice(1);

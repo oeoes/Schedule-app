@@ -9,7 +9,8 @@
 .up-next{
     width: 100%;
     padding: 10px;
-    background: gray;
+    background: #6574cd;
+    color: white;
     border: none
 }
 
@@ -52,6 +53,7 @@
     border-radius: 100%;
     top: 305px;
     left: -6px;
-}
+};
+
 
 /* Bootstrap config */

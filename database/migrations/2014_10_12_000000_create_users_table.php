@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('password');
             $table->enum('role', ['dosen', 'admin'])->default('admin');
+            $table->tinyInteger('pick_account')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

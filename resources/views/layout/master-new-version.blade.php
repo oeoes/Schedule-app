@@ -22,7 +22,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="startTime()">
 <div id="app">
 <!-- Flash message -->
     @if(Session::has('message'))

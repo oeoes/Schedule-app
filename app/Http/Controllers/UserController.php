@@ -15,8 +15,8 @@ class UserController extends Controller
         $day = Carbon::now('Asia/Jakarta');
         $day_course = $day->format('l');
 
-        $data = Course::where(['day' => $day_course, 'lecturer_id' => auth()->user()->lecturer->id])->where('status', '!=', 'end')->with('lecturer', 'room')->first();
-        $list = Course::where(['day' => $day_course, 'lecturer_id' => auth()->user()->lecturer->id])->where('status', '!=', 'end')->with('lecturer', 'room')->orderBy('time_begin')->get();
+        $data = Course::where(['day' => $day->format('l'), 'lecturer_id' => auth()->user()->lecturer->id])->where('status', '!=', 'end')->with('lecturer', 'room')->orderBy('time_begin')->first();
+        $list = Course::where(['day' => $day->format('l'), 'lecturer_id' => auth()->user()->lecturer->id])->where('status', '!=', 'end')->with('lecturer', 'room')->orderBy('time_begin')->get();
         return view('new-version.dosen-page')->with(['data' => $data, 'list' => $list]);
     }
 
@@ -75,8 +75,12 @@ class UserController extends Controller
         $lec = Lecturer::find($id);
         $lec->user_id = auth()->user()->id;
         $lec->is_claimed = 'y';
-
         $lec->save();
+
+        $user = User::find(auth()->user()->id);
+        $user->pick_account = 1;
+        $user->save();
+
         return redirect()->route('lecturer.home');
     }
 

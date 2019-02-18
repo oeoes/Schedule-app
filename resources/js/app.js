@@ -7,13 +7,24 @@ import CourseList from './components/CourseList.vue'
 import CourseListFull from './components/CourseListFull.vue'
 import LecturerList from './components/dashboard/Lecturer.vue'
 import LecturerIndex from './components/Lecturer.vue'
-import Lab301 from './components/schedule-new/Lab301.vue'
 import Lab302 from './components/schedule-new/Lab302.vue'
 import Lab303 from './components/schedule-new/Lab303.vue'
+import Lab304 from './components/schedule-new/Lab304.vue'
+import Lab401 from './components/schedule-new/Lab401.vue'
+import Lab402 from './components/schedule-new/Lab402.vue'
+import Lab403 from './components/schedule-new/Lab403.vue'
+
+import Lab302Kosong from './components/schedule-new/Lab302Kosong.vue'
+import Lab303Kosong from './components/schedule-new/Lab303Kosong.vue'
+import Lab304Kosong from './components/schedule-new/Lab304Kosong.vue'
+import Lab401Kosong from './components/schedule-new/Lab401Kosong.vue'
+import Lab402Kosong from './components/schedule-new/Lab402Kosong.vue'
+import Lab403Kosong from './components/schedule-new/Lab403Kosong.vue'
 
 // Construct Course data
-function Course({ initial, course_name, lecturer, sks, room, day, time_begin, time_finish, status }){
+function Course({ initial, sesi, course_name, lecturer, sks, room, day, time_begin, time_finish, status }){
     this.initial = initial;
+    this.sesi = sesi;
     this.course_name = course_name;
     this.lecturer = lecturer.name;
     this.sks = sks;
@@ -24,8 +35,9 @@ function Course({ initial, course_name, lecturer, sks, room, day, time_begin, ti
     this.status = status
 }
 
-function Lab301_Const({ initial, course_name, lecturer, sks, room, day, time_begin, time_finish, status, next_course, next_time_begin, next_time_finish, photo }){
+function Lab302_Const({ initial, sesi, course_name, lecturer, sks, room, day, time_begin, time_finish, status, next_course, next_time_begin, next_time_finish, photo }){
     this.initial = initial;
+    this.sesi = sesi;
     this.course_name = course_name;
     this.lecturer = lecturer.name;
     this.sks = sks;
@@ -40,8 +52,9 @@ function Lab301_Const({ initial, course_name, lecturer, sks, room, day, time_beg
     this.photo = lecturer.photo
 }
 
-function Lab302_Const({ initial, course_name, lecturer, sks, room, day, time_begin, time_finish, status, next_course, next_time_begin, next_time_finish, photo }){
+function Lab303_Const({ initial, sesi, course_name, lecturer, sks, room, day, time_begin, time_finish, status, next_course, next_time_begin, next_time_finish, photo }){
     this.initial = initial;
+    this.sesi = sesi;
     this.course_name = course_name;
     this.lecturer = lecturer.name;
     this.sks = sks;
@@ -56,8 +69,60 @@ function Lab302_Const({ initial, course_name, lecturer, sks, room, day, time_beg
     this.photo = lecturer.photo
 }
 
-function Lab303_Const({ initial, course_name, lecturer, sks, room, day, time_begin, time_finish, status, next_course, next_time_begin, next_time_finish, photo }){
+function Lab304_Const({ initial, sesi, course_name, lecturer, sks, room, day, time_begin, time_finish, status, next_course, next_time_begin, next_time_finish, photo }){
     this.initial = initial;
+    this.sesi = sesi;
+    this.course_name = course_name;
+    this.lecturer = lecturer.name;
+    this.sks = sks;
+    this.room = room.room;
+    this.day = day;
+    this.time_begin = time_begin;
+    this.time_finish = time_finish;
+    this.status = status,
+    this.next_course = next_course,
+    this.next_time_begin = next_time_begin,
+    this.next_time_finish = next_time_finish
+    this.photo = lecturer.photo
+}
+
+function Lab401_Const({ initial, sesi, course_name, lecturer, sks, room, day, time_begin, time_finish, status, next_course, next_time_begin, next_time_finish, photo }){
+    this.initial = initial;
+    this.sesi = sesi;
+    this.course_name = course_name;
+    this.lecturer = lecturer.name;
+    this.sks = sks;
+    this.room = room.room;
+    this.day = day;
+    this.time_begin = time_begin;
+    this.time_finish = time_finish;
+    this.status = status,
+    this.next_course = next_course,
+    this.next_time_begin = next_time_begin,
+    this.next_time_finish = next_time_finish
+    this.photo = lecturer.photo
+}
+
+function Lab402_Const({ initial, sesi, course_name, lecturer, sks, room, day, time_begin, time_finish, status, next_course, next_time_begin, next_time_finish, photo }){
+    this.initial = initial;
+    this.sesi = sesi;
+    this.course_name = course_name;
+    this.lecturer = lecturer.name;
+    this.sks = sks;
+    this.room = room.room;
+    this.day = day;
+    this.time_begin = time_begin;
+    this.time_finish = time_finish;
+    this.status = status,
+    this.next_course = next_course,
+    this.next_time_begin = next_time_begin,
+    this.next_time_finish = next_time_finish
+    this.photo = lecturer.photo
+}
+
+function Lab403_Const({ initial, sesi, course_name, lecturer, sks, room, day, time_begin, time_finish, status, next_course, next_time_begin, next_time_finish, photo }){
+    this.initial = initial;
+    this.sesi = sesi;
     this.course_name = course_name;
     this.lecturer = lecturer.name;
     this.sks = sks;
@@ -98,9 +163,12 @@ const app = new Vue({
             myload: false,
             today: false,
             lecturer_name: '',
-            lab301_arr: [],
             lab302_arr: [],
-            lab303_arr: []
+            lab303_arr: [],
+            lab304_arr: [],
+            lab401_arr: [],
+            lab402_arr: [],
+            lab403_arr: []
         }
     },
     components: {
@@ -108,9 +176,18 @@ const app = new Vue({
         'course-full': CourseListFull,
         'lecturer': LecturerList,
         'lecturer-index': LecturerIndex,
-        'lab-301': Lab301,
+        'lab-304': Lab304,
         'lab-302': Lab302,
         'lab-303': Lab303,
+        'lab-401': Lab401,
+        'lab-402': Lab402,
+        'lab-403': Lab403,
+        'lab-302-kosong': Lab302Kosong,
+        'lab-303-kosong': Lab303Kosong,
+        'lab-304-kosong': Lab304Kosong,
+        'lab-401-kosong': Lab401Kosong,
+        'lab-402-kosong': Lab402Kosong,
+        'lab-403-kosong': Lab403Kosong,
     },
     methods: {
         // Getting available courses from db
@@ -198,14 +275,6 @@ const app = new Vue({
             // Nothing
         },
         // Getting data for Lab
-        lab301_func: function(){
-            window.axios.get('http://localhost:8000/preview/api/301').then(({ data }) => {
-                data.forEach(lab => {
-                    this.lab301_arr.push(new Lab301_Const(lab))
-                });
-            })
-        },
-        
         lab302_func: function(){
             window.axios.get('http://localhost:8000/preview/api/302').then(({ data }) => {
                 data.forEach(lab => {
@@ -221,20 +290,82 @@ const app = new Vue({
             })
         },
 
-        check301: function(){
-            window.axios.get('http://localhost:8000/preview/api/301/check').then(({ data }) => {
-                this.lab301_arr[0].status = data[0].status
+        lab304_func: function(){
+            window.axios.get('http://localhost:8000/preview/api/304').then(({ data }) => {
+                data.forEach(lab => {
+                    this.lab304_arr.push(new Lab304_Const(lab))
+                });
+            })
+        },
+        
+        lab401_func: function(){
+            window.axios.get('http://localhost:8000/preview/api/401').then(({ data }) => {
+                data.forEach(lab => {
+                    this.lab401_arr.push(new Lab401_Const(lab))
+                });
+            })
+        },
+        
+        lab402_func: function(){
+            window.axios.get('http://localhost:8000/preview/api/402').then(({ data }) => {
+                data.forEach(lab => {
+                    this.lab402_arr.push(new Lab402_Const(lab))
+                });
+            })
+        },
+        
+        lab403_func: function(){
+            window.axios.get('http://localhost:8000/preview/api/403').then(({ data }) => {
+                data.forEach(lab => {
+                    this.lab403_arr.push(new Lab403_Const(lab))
+                });
             })
         },
 
         check302: function(){
-            window.axios.get('http://localhost:8000/preview/api/301/check').then(({ data }) => {
-                this.lab302_arr[0].status = data[0].status
+            window.axios.get('http://localhost:8000/preview/api/302/check').then(({ data }) => {
+                if(data.length > 0){
+                    this.lab302_arr[0].status = data[0].status
+                }
             })
         },
         check303: function(){
             window.axios.get('http://localhost:8000/preview/api/303/check').then(({ data }) => {
-                this.lab303_arr[0].status = data[0].status
+                if(data.length > 0){
+                    this.lab303_arr[0].status = data[0].status
+                }
+            })
+        },
+
+        check304: function(){
+            window.axios.get('http://localhost:8000/preview/api/304/check').then(({ data }) => {
+                if(data.length > 0){
+                    this.lab304_arr[0].status = data[0].status
+                }
+            })
+        },
+
+        check401: function(){
+            window.axios.get('http://localhost:8000/preview/api/401/check').then(({ data }) => {
+                if(data.length > 0){
+                    this.lab401_arr[0].status = data[0].status
+                }
+            })
+        },
+
+        check402: function(){
+            window.axios.get('http://localhost:8000/preview/api/402/check').then(({ data }) => {
+                if(data.length > 0){
+                    this.lab402_arr[0].status = data[0].status
+                }
+            })
+        },
+
+        check403: function(){
+            window.axios.get('http://localhost:8000/preview/api/403/check').then(({ data }) => {
+                if(data.length > 0){
+                    this.lab403_arr[0].status = data[0].status
+                }
             })
         },
     },
@@ -245,22 +376,34 @@ const app = new Vue({
         this.lecturer_for_index()
         this.lecturer()
 
-        this.lab301_func()
         this.lab302_func()
         this.lab303_func()
+        this.lab304_func()
+        this.lab401_func()
+        this.lab402_func()
+        this.lab403_func()
 
-        // setInterval(() => {
-        //     this.lab301_arr = []
-        //     this.lab302_arr = []
-        //     this.lab303_arr = []
-        //     this.lab301_func()
-        //     this.lab302_func()
-        //     this.lab303_func()
-        // }, 10000);
         setInterval(() => {
-            this.check301()
+            this.lab304_arr = []
+            this.lab302_arr = []
+            this.lab303_arr = []
+            this.lab401_arr = []
+            this.lab402_arr = []
+            this.lab403_arr = []
+            this.lab302_func()
+            this.lab303_func()
+            this.lab304_func()
+            this.lab401_func()
+            this.lab402_func()
+            this.lab403_func()
+        }, 30000);
+        setInterval(() => {
             this.check302()
             this.check303()
+            this.check304()
+            this.check401()
+            this.check402()
+            this.check403()
         }, 1000);
 
         // Execute lecturer_for_index function every 10 seconds

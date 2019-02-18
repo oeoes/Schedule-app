@@ -35,12 +35,12 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="course_name">Course Name</label>
-                                    <input name="course_name" type="text" class="form-control">
+                                    <input name="course_name" type="text" class="form-control" maxlength="30">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="initial">Course Initial</label>
-                                    <input name="initial" type="text" class="form-control">
+                                    <input name="initial" type="text" class="form-control" maxlength="3">
                                 </div>
 
                                 <div class="form-group">
@@ -86,9 +86,9 @@
                                 <div class="form-group">
                                     <label for="room_id">Place</label>
                                     <select name="room_id" id="" class="form-control">
-                                        <option value="1">FIK LAB 301</option>
-                                        <option value="2">FIK LAB 302</option>
-                                        <option value="3">FIK LAB 303</option>
+                                        <option value="1">FIK LAB 302</option>
+                                        <option value="2">FIK LAB 303</option>
+                                        <option value="3">FIK LAB 304</option>
                                         <option value="4">FIK LAB 401</option>
                                         <option value="5">FIK LAB 402</option>
                                         <option value="6">FIK LAB 403</option>
@@ -212,12 +212,12 @@
 
                                                     <div class="form-group">
                                                         <label for="course_name">Course Name</label>
-                                                        <input name="course_name" type="text" class="form-control" value="{{ $d->course_name }}">
+                                                        <input name="course_name" type="text" class="form-control" value="{{ $d->course_name }}" maxlength="30">
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="initial">Course Initial</label>
-                                                        <input name="initial" type="text" class="form-control" value="{{ $d->initial }}">
+                                                        <input name="initial" type="text" class="form-control" value="{{ $d->initial }}" maxlength="3">
                                                     </div>
 
                                                     <div class="form-group">
@@ -262,7 +262,7 @@
 
                                                     <div class="form-group">
                                                         <label for="room_id">Place</label>
-                                                        {{ Form::select('room_id', ['1' => 'LAB 301', '2' => 'LAB 302', '3' => 'LAB 303', '4' => 'LAB 401', '5' => 'LAB 402', '6' => 'LAB 403'], $d->room_id, ['class' => 'form-control']) }}
+                                                        {{ Form::select('room_id', ['1' => 'LAB 302', '2' => 'LAB 303', '3' => 'LAB 304', '4' => 'LAB 401', '5' => 'LAB 402', '6' => 'LAB 403'], $d->room_id, ['class' => 'form-control']) }}
                                                     </div>
 
                                                     <div class="form-group">

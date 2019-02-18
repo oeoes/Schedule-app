@@ -2,16 +2,22 @@
 
 Route::get('/preview', 'ScheduleNewVersion@home');
 // API
-Route::get('/preview/api/301', 'ScheduleNewVersion@lab301');
-Route::get('/preview/api/301/check', 'ScheduleNewVersion@lab301Cek');
+Route::get('/preview/api/304', 'ScheduleNewVersion@lab304');
+Route::get('/preview/api/304/check', 'ScheduleNewVersion@lab304Cek');
 Route::get('/preview/api/302', 'ScheduleNewVersion@lab302');
 Route::get('/preview/api/302/check', 'ScheduleNewVersion@lab302Cek');
 Route::get('/preview/api/303', 'ScheduleNewVersion@lab303');
 Route::get('/preview/api/303/check', 'ScheduleNewVersion@lab303Cek');
+Route::get('/preview/api/401', 'ScheduleNewVersion@lab401');
+Route::get('/preview/api/401/check', 'ScheduleNewVersion@lab401Cek');
+Route::get('/preview/api/402', 'ScheduleNewVersion@lab402');
+Route::get('/preview/api/402/check', 'ScheduleNewVersion@lab402Cek');
+Route::get('/preview/api/403', 'ScheduleNewVersion@lab403');
+Route::get('/preview/api/403/check', 'ScheduleNewVersion@lab403Cek');
 
 /* Dosen Authentication */
 Route::prefix('lecturer')->group(function() {
-    Route::get('/', 'UserController@lecturerHome')->name('lecturer.home')->middleware('auth', 'auth-dosen');
+    Route::get('/', 'UserController@lecturerHome')->name('lecturer.home')->middleware('auth', 'auth-dosen', 'account-checker');
     Route::get('/login', 'UserController@lecturerLogin')->name('lecturer.login');
     Route::post('/login/auth', 'UserController@lecturerAuth')->name('lecturer.auth');
     Route::get('/signup', 'UserController@lecturerSignup')->name('lecturer.signup');

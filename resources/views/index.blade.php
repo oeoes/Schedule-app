@@ -37,9 +37,9 @@
                         <div class="card animated slideInLeft border-0" style="a">
                             <div class="h4 card-header bg-blue white">Rooms</div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item animated slideInLeft"><a @click.prevent="sortRoom(1)" href=""><i class="fa fa-map-marker-alt"></i> FIK LAB 301</a></li>
-                                <li class="list-group-item animated slideInLeft delay-1"><a @click.prevent="sortRoom(2)" href=""><i class="fa fa-map-marker-alt"></i> FIK LAB 302</a></li>
-                                <li class="list-group-item animated slideInLeft delay-2"><a @click.prevent="sortRoom(3)" href=""><i class="fa fa-map-marker-alt"></i> FIK LAB 303</a></li>
+                                <li class="list-group-item animated slideInLeft"><a @click.prevent="sortRoom(1)" href=""><i class="fa fa-map-marker-alt"></i> FIK LAB 302</a></li>
+                                <li class="list-group-item animated slideInLeft delay-1"><a @click.prevent="sortRoom(2)" href=""><i class="fa fa-map-marker-alt"></i> FIK LAB 303</a></li>
+                                <li class="list-group-item animated slideInLeft delay-2"><a @click.prevent="sortRoom(3)" href=""><i class="fa fa-map-marker-alt"></i> FIK LAB 304</a></li>
                                 <li class="list-group-item animated slideInLeft delay-3"><a @click.prevent="sortRoom(4)" href=""><i class="fa fa-map-marker-alt"></i> FIK LAB 401</a></li>
                                 <li class="list-group-item animated slideInLeft delay-4"><a @click.prevent="sortRoom(5)" href=""><i class="fa fa-map-marker-alt"></i> FIK LAB 402</a></li>
                                 <li class="list-group-item animated slideInLeft delay-5"><a @click.prevent="sortRoom(6)" href=""><i class="fa fa-map-marker-alt"></i> FIK LAB 403</a></li>
