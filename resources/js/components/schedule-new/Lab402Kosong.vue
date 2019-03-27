@@ -9,7 +9,7 @@
             <div class="card-body shadow-sm min-height">
                 <div class="row mt-5 pt-4">
                     <div class="col-8 offset-2">
-                        <img :src="path" alt="" width="100%" style="opacity: .5">
+                        <img :src="path" alt="" width="100%" style="opacity: .3">
                     </div>
                 </div>
             </div>

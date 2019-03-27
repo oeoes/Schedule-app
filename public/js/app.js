@@ -38633,7 +38633,7 @@ var render = function() {
         _c("div", { staticClass: "row mt-5 pt-4" }, [
           _c("div", { staticClass: "col-8 offset-2" }, [
             _c("img", {
-              staticStyle: { opacity: ".5" },
+              staticStyle: { opacity: ".3" },
               attrs: { src: _vm.path, alt: "", width: "100%" }
             })
           ])
@@ -38942,7 +38942,7 @@ var render = function() {
         _c("div", { staticClass: "row mt-5 pt-4" }, [
           _c("div", { staticClass: "col-8 offset-2" }, [
             _c("img", {
-              staticStyle: { opacity: ".5" },
+              staticStyle: { opacity: ".3" },
               attrs: { src: _vm.path, alt: "", width: "100%" }
             })
           ])
@@ -39251,7 +39251,7 @@ var render = function() {
         _c("div", { staticClass: "row mt-5 pt-4" }, [
           _c("div", { staticClass: "col-8 offset-2" }, [
             _c("img", {
-              staticStyle: { opacity: ".5" },
+              staticStyle: { opacity: ".3" },
               attrs: { src: _vm.path, alt: "", width: "100%" }
             })
           ])
@@ -39560,7 +39560,7 @@ var render = function() {
         _c("div", { staticClass: "row mt-5 pt-4" }, [
           _c("div", { staticClass: "col-8 offset-2" }, [
             _c("img", {
-              staticStyle: { opacity: ".5" },
+              staticStyle: { opacity: ".3" },
               attrs: { src: _vm.path, alt: "", width: "100%" }
             })
           ])
@@ -39869,7 +39869,7 @@ var render = function() {
         _c("div", { staticClass: "row mt-5 pt-4" }, [
           _c("div", { staticClass: "col-8 offset-2" }, [
             _c("img", {
-              staticStyle: { opacity: ".5" },
+              staticStyle: { opacity: ".3" },
               attrs: { src: _vm.path, alt: "", width: "100%" }
             })
           ])
@@ -40178,7 +40178,7 @@ var render = function() {
         _c("div", { staticClass: "row mt-5 pt-4" }, [
           _c("div", { staticClass: "col-8 offset-2" }, [
             _c("img", {
-              staticStyle: { opacity: ".5" },
+              staticStyle: { opacity: ".3" },
               attrs: { src: _vm.path, alt: "", width: "100%" }
             })
           ])
