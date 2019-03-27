@@ -52,7 +52,7 @@
                 <div class="col-12 text-center">
                     <div><small class="text-muted">Copyright &copy; 2019</small></div>
                     <span class="card-course"><a class="h1 text-muted" href="https://github.com/oeoes?tab=repositories"><i class="fab fa-github"></i></a></span>
-                    <div><small class="text-muted">Schedule V1.1.0</small></div>
+                    <div><small class="text-muted">Schedule V1.2.0</small></div>
                 </div>
             </div>
         </div>
