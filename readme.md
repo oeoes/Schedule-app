@@ -21,5 +21,5 @@
 </p>
 
 
-# Schedule v2.0.0
+# Schedule v1.2.0
 
