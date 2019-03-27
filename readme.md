@@ -9,6 +9,7 @@
 
 
 # Schedule v1.0
+### Schedule v2.0 is available
 <p>
     Hello there! Welcome to Schedule v1.0 repository. Here you can clone this repo freely, ya of course.
     But, wait, what do I clone this repo for? Okay.. okay.. I almost forgot. Then, lemme introduce this app.
